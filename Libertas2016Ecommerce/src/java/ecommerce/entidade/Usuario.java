@@ -5,15 +5,28 @@
  */
 package ecommerce.entidade;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Usuario
  */
+
+@Entity
+   @Table (name = "USUARIO")
 public class Usuario {
     
+   @Id
+    @Column(name = "idusuario")  
     private int idusuario;
+   @Column(name = "email") 
     private String email;
+   @Column(name = "senha") 
     private String senha;
+   @Column(name = "admin") 
     private boolean admin;
 
     public Usuario() {
