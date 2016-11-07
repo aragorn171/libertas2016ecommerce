@@ -5,17 +5,32 @@
  */
 package ecommerce.entidade;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Usuario
  */
+
+@Entity
+   @Table (name = "ENDERECO")
 public class Endereco {
     
+    @Id
+    @Column(name = "idendereco")
     private int idendereco;
+        @Column(name = "logadouro")
     private String logadouro;
+         @Column(name = "numero")
     private String numero;
+          @Column(name = "bairro")
     private String bairro;
+           @Column(name = "cidade")
     private Cidade cidade;
+            @Column(name = "cep")
     private String cep;
 
     public Endereco() {

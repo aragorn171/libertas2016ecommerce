@@ -5,14 +5,27 @@
  */
 package ecommerce.entidade;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Usuario
  */
+
+@Entity
+   @Table (name = "CIDADE")
 public class Cidade {
     
+    
+    @Id
+    @Column(name = "idcidade")
     private int idcidade;
+    @Column(name = "cidade",length = 60,nullable = false)
     private String cidade;
+    @Column(name = "estado",length = 60,nullable = false)
     private String estado;
 
     public Cidade() {

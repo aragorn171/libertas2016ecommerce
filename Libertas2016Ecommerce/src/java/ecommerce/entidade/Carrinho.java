@@ -5,15 +5,26 @@
  */
 package ecommerce.entidade;
 
+import javax.persistence.*;
+
 /**
  *
  * @author Usuario
  */
+   @Entity
+   @Table (name = "CARRINHO")
+   
+
 public class Carrinho {
     
+    @Id
+    @Column(name = "idcarrinho")
     private int idcarrinho;
+    @Column(name = "produto",length = 60,nullable = false)
     private Produto produto;
+    @Column(name = "cliente",length = 60 )
     private Cliente cliente;
+    @Column(name = "quantidade")
     private int quantidade;
 
     public Carrinho() {

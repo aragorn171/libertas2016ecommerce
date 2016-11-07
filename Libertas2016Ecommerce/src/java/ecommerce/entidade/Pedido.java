@@ -6,18 +6,32 @@
 package ecommerce.entidade;
 
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Usuario
  */
+
+@Entity
+   @Table (name = "PEDIDO")
 public class Pedido {
     
+    @Id
+    @Column(name = "idpedido") 
     private int idpedido;
+    @Column(name = "clente") 
     private Cliente cliente;
+    @Column(name = "data") 
     private Date data;
+    @Column(name = "valorFrete") 
     private double valorFrete;
+    @Column(name = "dataPagto") 
     private Date dataPagto;
+    @Column(name = "pago") 
     private boolean pago;
 
     public Pedido() {

@@ -5,13 +5,25 @@
  */
 package ecommerce.entidade;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Usuario
  */
+
+@Entity
+   @Table (name = "CATEGORIA")
+   
 public class Categoria {
     
+    @Id
+    @Column(name = "idcategoria")
     private int idcategoria;
+    @Column(name = "nome",length = 60,nullable = false)
     private String nome;
 
     public Categoria() {

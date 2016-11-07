@@ -5,15 +5,28 @@
  */
 package ecommerce.entidade;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Usuario
  */
+
+@Entity
+   @Table (name = "INTEMPEDIDO")
 public class ItemPedido {
-    
+   
+    @Id
+    @Column(name = "idendereco")    
     private int iditempedido;
+    @Column(name = "produto")
     private Produto produto;
+    @Column(name = "quantidade")
     private int quantidade;
+    @Column(name = "precoUnitario")
     private double precoUnitario;
 
     public ItemPedido() {
