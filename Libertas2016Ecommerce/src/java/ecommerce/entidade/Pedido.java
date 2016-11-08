@@ -8,6 +8,7 @@ package ecommerce.entidade;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -22,6 +23,7 @@ public class Pedido {
     
     @Id
     @Column(name = "idpedido") 
+    @GeneratedValue
     private int idpedido;
     @Column(name = "clente") 
     private Cliente cliente;
