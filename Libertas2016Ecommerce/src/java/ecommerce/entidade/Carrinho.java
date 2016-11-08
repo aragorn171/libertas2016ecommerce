@@ -11,19 +11,22 @@ import javax.persistence.*;
  *
  * @author Usuario
  */
-   @Entity
-   @Table (name = "CARRINHO")
-   
+@Entity
+@Table(name = "CARRINHO")
 
 public class Carrinho {
-    
+
     @Id
     @Column(name = "idcarrinho")
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idcarrinho;
-    @Column(name = "produto",length = 60,nullable = false)
+    @Column(name = "produto", length = 60, nullable = false)
+    @OneToOne
+    @JoinColumn(name = "idproduto")
     private Produto produto;
-    @Column(name = "cliente",length = 60 )
+    @Column(name = "cliente", length = 60)
+    @OneToOne
+    @JoinColumn(name = "idcliente")
     private Cliente cliente;
     @Column(name = "quantidade")
     private int quantidade;
@@ -62,7 +65,5 @@ public class Carrinho {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-    
-    
-    
+
 }

@@ -16,17 +16,16 @@ import javax.persistence.Table;
  *
  * @author Usuario
  */
-
 @Entity
-   @Table (name = "CATEGORIA")
-   
+@Table(name = "CATEGORIA")
+
 public class Categoria {
-    
+
     @Id
     @Column(name = "idcategoria")
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idcategoria;
-    @Column(name = "nome",length = 60,nullable = false)
+    @Column(name = "nome", length = 60, nullable = false)
     private String nome;
 
     public Categoria() {
@@ -47,8 +46,5 @@ public class Categoria {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    
-    
-    
+
 }

@@ -10,30 +10,33 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
  *
  * @author Usuario
  */
-
 @Entity
-   @Table (name = "ENDERECO")
+@Table(name = "ENDERECO")
 public class Endereco {
-    
+
     @Id
     @Column(name = "idendereco")
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idendereco;
-        @Column(name = "logadouro")
+    @Column(name = "logadouro")
     private String logadouro;
-         @Column(name = "numero")
+    @Column(name = "numero")
     private String numero;
-          @Column(name = "bairro")
+    @Column(name = "bairro")
     private String bairro;
-           @Column(name = "cidade")
+    @Column(name = "cidade")
+    @OneToOne
+    @JoinColumn(name = "idcidade")
     private Cidade cidade;
-            @Column(name = "cep")
+    @Column(name = "cep")
     private String cep;
 
     public Endereco() {
@@ -86,7 +89,5 @@ public class Endereco {
     public void setCep(String cep) {
         this.cep = cep;
     }
-    
-    
-    
+
 }

@@ -10,24 +10,27 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
  *
  * @author Usuario
  */
-
 @Entity
-   @Table (name = "PRODUTO")
+@Table(name = "PRODUTO")
 public class Produto {
-        
+
     @Id
-    @Column(name = "idproduto") 
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "idproduto")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idproduto;
     @Column(name = "descricao")
     private String descricao;
     @Column(name = "categoria")
+    @OneToOne
+    @JoinColumn(name = "idcategoria")
     private Categoria categoria;
     @Column(name = "urlFoto")
     private String urlFoto;
@@ -86,7 +89,5 @@ public class Produto {
     public void setPaginainicial(boolean paginainicial) {
         this.paginainicial = paginainicial;
     }
-    
-    
-    
+
 }

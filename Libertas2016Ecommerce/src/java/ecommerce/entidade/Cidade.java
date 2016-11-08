@@ -16,19 +16,17 @@ import javax.persistence.Table;
  *
  * @author Usuario
  */
-
 @Entity
-   @Table (name = "CIDADE")
+@Table(name = "CIDADE")
 public class Cidade {
-    
-    
+
     @Id
     @Column(name = "idcidade")
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idcidade;
-    @Column(name = "cidade",length = 60,nullable = false)
+    @Column(name = "cidade", length = 60, nullable = false)
     private String cidade;
-    @Column(name = "estado",length = 60,nullable = false)
+    @Column(name = "estado", length = 60, nullable = false)
     private String estado;
 
     public Cidade() {
@@ -57,7 +55,5 @@ public class Cidade {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
-    
-    
+
 }

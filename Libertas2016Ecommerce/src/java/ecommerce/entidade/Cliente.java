@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ecommerce.entidade;
 
 import javax.persistence.Column;
@@ -11,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -18,24 +19,28 @@ import javax.persistence.Table;
  * @author Plinio Naves
  */
 @Entity
-@Table(name="cliente")
+@Table(name = "cliente")
 public class Cliente implements java.io.Serializable {
-    
+
     @Id
-    @Column(name = "id") 
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idcliente;
-    @Column(name = "nome") 
+    @Column(name = "nome")
     private String nome;
-    @Column(name = "cpf") 
+    @Column(name = "cpf")
     private String cpf;
-    @Column(name = "endereco") 
-    private String endereco;
-    @Column(name = "rg") 
+    @Column(name = "endereco")
+    @OneToOne
+    @JoinColumn(name = "idendereco")
+    private Endereco endereco;
+    @Column(name = "rg")
     private String rg;
-    @Column(name = "telefone") 
+    @Column(name = "telefone")
     private String telefone;
-    @Column(name = "usuario") 
+    @Column(name = "usuario")
+    @OneToOne
+    @JoinColumn(name = "idusuario")
     private Usuario usuario;
 
     public Integer getIdcliente() {
@@ -62,11 +67,11 @@ public class Cliente implements java.io.Serializable {
         this.cpf = cpf;
     }
 
-    public String getEndereco() {
+    public Endereco getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(String endereco) {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 
@@ -93,7 +98,5 @@ public class Cliente implements java.io.Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
-    
-    
+
 }

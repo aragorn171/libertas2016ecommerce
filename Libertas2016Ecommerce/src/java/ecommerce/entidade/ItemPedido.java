@@ -10,22 +10,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
  *
  * @author Usuario
  */
-
 @Entity
-   @Table (name = "INTEMPEDIDO")
+@Table(name = "INTEMPEDIDO")
 public class ItemPedido {
-   
+
     @Id
-    @Column(name = "idendereco") 
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "idendereco")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int iditempedido;
     @Column(name = "produto")
+    @OneToOne
+    @JoinColumn(name = "idproduto")
     private Produto produto;
     @Column(name = "quantidade")
     private int quantidade;
@@ -66,7 +69,5 @@ public class ItemPedido {
     public void setPrecoUnitario(double precoUnitario) {
         this.precoUnitario = precoUnitario;
     }
-    
-    
-    
+
 }

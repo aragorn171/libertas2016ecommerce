@@ -11,30 +11,33 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
  *
  * @author Usuario
  */
-
 @Entity
-   @Table (name = "PEDIDO")
+@Table(name = "PEDIDO")
 public class Pedido {
-    
+
     @Id
-    @Column(name = "idpedido") 
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "idpedido")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idpedido;
-    @Column(name = "clente") 
+    @Column(name = "clente")
+    @OneToOne
+    @JoinColumn(name = "idcliente")
     private Cliente cliente;
-    @Column(name = "data") 
+    @Column(name = "data")
     private Date data;
-    @Column(name = "valorFrete") 
+    @Column(name = "valorFrete")
     private double valorFrete;
-    @Column(name = "dataPagto") 
+    @Column(name = "dataPagto")
     private Date dataPagto;
-    @Column(name = "pago") 
+    @Column(name = "pago")
     private boolean pago;
 
     public Pedido() {
@@ -87,10 +90,10 @@ public class Pedido {
     public void setPago(boolean pago) {
         this.pago = pago;
     }
-    
-   public double getValorTotal(){
+
+    public double getValorTotal() {
         double valorTotal = 0;
-       return valorTotal;
-   }
-    
+        return valorTotal;
+    }
+
 }

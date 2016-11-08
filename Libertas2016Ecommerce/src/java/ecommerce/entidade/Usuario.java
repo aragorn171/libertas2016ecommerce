@@ -16,20 +16,19 @@ import javax.persistence.Table;
  *
  * @author Usuario
  */
-
 @Entity
-   @Table (name = "USUARIO")
+@Table(name = "USUARIO")
 public class Usuario {
-    
-   @Id
-    @Column(name = "idusuario")  
-   @GeneratedValue (strategy = GenerationType.IDENTITY)
+
+    @Id
+    @Column(name = "idusuario")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idusuario;
-   @Column(name = "email") 
+    @Column(name = "email")
     private String email;
-   @Column(name = "senha") 
+    @Column(name = "senha")
     private String senha;
-   @Column(name = "admin") 
+    @Column(name = "admin")
     private boolean admin;
 
     public Usuario() {
@@ -66,7 +65,5 @@ public class Usuario {
     public void setAdmin(boolean admin) {
         this.admin = admin;
     }
-    
-    
-    
+
 }
