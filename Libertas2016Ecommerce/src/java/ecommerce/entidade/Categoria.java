@@ -24,6 +24,7 @@ public class Categoria implements java.io.Serializable {
     @Column(name = "idCategoria")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCategoria;
+    
     @Column(name = "nome", length = 60, nullable = false)
     private String nome;
 

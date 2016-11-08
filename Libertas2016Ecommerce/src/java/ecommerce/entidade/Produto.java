@@ -12,7 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -27,16 +26,21 @@ public class Produto implements java.io.Serializable {
     @Column(name = "idProduto")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idProduto;
+    
     @Column(name = "descricao")
     private String descricao;
+    
     //@Column(name = "categoria")
     @ManyToOne
     @JoinColumn(name = "idCategoria")
     private Categoria categoria;
+    
     @Column(name = "urlFoto")
     private String urlFoto;
+    
     @Column(name = "preco")
     private double preco;
+    
     @Column(name = "paginaInicial")
     private boolean paginaInicial;
 

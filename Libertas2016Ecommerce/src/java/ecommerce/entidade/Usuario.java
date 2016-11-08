@@ -24,10 +24,13 @@ public class Usuario implements java.io.Serializable {
     @Column(name = "idUsuario")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
+    
     @Column(name = "email")
     private String email;
+    
     @Column(name = "senha")
     private String senha;
+    
     @Column(name = "admin")
     private boolean admin;
 

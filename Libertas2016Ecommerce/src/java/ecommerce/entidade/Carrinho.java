@@ -19,14 +19,17 @@ public class Carrinho implements java.io.Serializable {
     @Column(name = "idCarrinho")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCarrinho;
+    
     //@Column(name = "produto", length = 60, nullable = false)
     @ManyToOne
     @JoinColumn(name = "idProduto")
     private Produto produto;
+    
     //@Column(name = "cliente", length = 60)
     @ManyToOne
     @JoinColumn(name = "idCliente")
     private Cliente cliente;
+    
     @Column(name = "quantidade")
     private int quantidade;
 
