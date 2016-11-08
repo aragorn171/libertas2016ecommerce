@@ -8,6 +8,7 @@ package ecommerce.entidade;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -23,7 +24,7 @@ public class Cidade {
     
     @Id
     @Column(name = "idcidade")
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int idcidade;
     @Column(name = "cidade",length = 60,nullable = false)
     private String cidade;

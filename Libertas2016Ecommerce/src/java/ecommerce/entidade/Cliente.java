@@ -6,6 +6,7 @@
 
 package ecommerce.entidade;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,20 +22,28 @@ import javax.persistence.Table;
 public class Cliente implements java.io.Serializable {
     
     @Id
+    @Column(name = "id") 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idcliente;
+    @Column(name = "nome") 
     private String nome;
+    @Column(name = "cpf") 
     private String cpf;
+    @Column(name = "endereco") 
     private String endereco;
+    @Column(name = "rg") 
     private String rg;
+    @Column(name = "telefone") 
     private String telefone;
+    @Column(name = "usuario") 
+    private Usuario usuario;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdcliente() {
+        return idcliente;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdcliente(Integer id) {
+        this.idcliente = id;
     }
 
     public String getNome() {
@@ -76,6 +85,15 @@ public class Cliente implements java.io.Serializable {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
     
     
 }

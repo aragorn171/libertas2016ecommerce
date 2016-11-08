@@ -19,7 +19,7 @@ public class Carrinho {
     
     @Id
     @Column(name = "idcarrinho")
-    @GeneratedValue 
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int idcarrinho;
     @Column(name = "produto",length = 60,nullable = false)
     private Produto produto;
