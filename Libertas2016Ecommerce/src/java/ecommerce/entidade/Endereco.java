@@ -11,7 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -19,35 +19,40 @@ import javax.persistence.Table;
  * @author Usuario
  */
 @Entity
-@Table(name = "ENDERECO")
-public class Endereco {
+@Table(name = "endereco")
+public class Endereco implements java.io.Serializable {
 
     @Id
-    @Column(name = "idendereco")
+    @Column(name = "idEndereco")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idendereco;
+    private int idEndereco;
+    
     @Column(name = "logadouro")
     private String logadouro;
+    
     @Column(name = "numero")
     private String numero;
+    
     @Column(name = "bairro")
     private String bairro;
-    @Column(name = "cidade")
-    @OneToOne
-    @JoinColumn(name = "idcidade")
+    
+    //@Column(name = "cidade")
+    @ManyToOne
+    @JoinColumn(name = "idCidade")
     private Cidade cidade;
+    
     @Column(name = "cep")
     private String cep;
 
     public Endereco() {
     }
 
-    public int getIdendereco() {
-        return idendereco;
+    public int getIdEndereco() {
+        return idEndereco;
     }
 
-    public void setIdendereco(int idendereco) {
-        this.idendereco = idendereco;
+    public void setIdEndereco(int idEndereco) {
+        this.idEndereco = idEndereco;
     }
 
     public String getLogadouro() {

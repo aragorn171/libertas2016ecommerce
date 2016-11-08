@@ -12,21 +12,20 @@ import javax.persistence.*;
  * @author Usuario
  */
 @Entity
-@Table(name = "CARRINHO")
-
-public class Carrinho {
+@Table(name = "carrinho")
+public class Carrinho implements java.io.Serializable {
 
     @Id
-    @Column(name = "idcarrinho")
+    @Column(name = "idCarrinho")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idcarrinho;
-    @Column(name = "produto", length = 60, nullable = false)
-    @OneToOne
-    @JoinColumn(name = "idproduto")
+    private int idCarrinho;
+    //@Column(name = "produto", length = 60, nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "idProduto")
     private Produto produto;
-    @Column(name = "cliente", length = 60)
-    @OneToOne
-    @JoinColumn(name = "idcliente")
+    //@Column(name = "cliente", length = 60)
+    @ManyToOne
+    @JoinColumn(name = "idCliente")
     private Cliente cliente;
     @Column(name = "quantidade")
     private int quantidade;
@@ -34,12 +33,12 @@ public class Carrinho {
     public Carrinho() {
     }
 
-    public int getIdcarrinho() {
-        return idcarrinho;
+    public int getIdCarrinho() {
+        return idCarrinho;
     }
 
-    public void setIdcarrinho(int idcarrinho) {
-        this.idcarrinho = idcarrinho;
+    public void setIdCarrinho(int idCarrinho) {
+        this.idCarrinho = idCarrinho;
     }
 
     public Produto getProduto() {

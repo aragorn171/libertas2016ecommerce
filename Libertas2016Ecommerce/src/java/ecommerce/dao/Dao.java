@@ -21,7 +21,7 @@ public abstract class Dao<T> {
         this.classe = classe;
     }
     
-    private void salvarOuAtualizar(T objeto) {
+    protected void salvarOuAtualizar(T objeto) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         session.saveOrUpdate(objeto);

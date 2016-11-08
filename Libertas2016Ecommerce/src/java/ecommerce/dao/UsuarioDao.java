@@ -11,7 +11,7 @@ import ecommerce.entidade.Usuario;
  *
  * @author Bruno
  */
-public class UsuarioDao extends Dao<Usuario>{
+class UsuarioDao extends Dao<Usuario>{
 
     public UsuarioDao() {
         super(Usuario.class);

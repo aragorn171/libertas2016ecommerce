@@ -23,32 +23,38 @@ import javax.persistence.Table;
 public class Cliente implements java.io.Serializable {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "idCliente")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idcliente;
+    private Integer idCliente;
+    
     @Column(name = "nome")
     private String nome;
+    
     @Column(name = "cpf")
     private String cpf;
-    @Column(name = "endereco")
+    
+    //@Column(name = "endereco")
     @OneToOne
-    @JoinColumn(name = "idendereco")
+    @JoinColumn(name = "idEndereco")
     private Endereco endereco;
+    
     @Column(name = "rg")
     private String rg;
+    
     @Column(name = "telefone")
     private String telefone;
-    @Column(name = "usuario")
+    
+    //@Column(name = "usuario")
     @OneToOne
-    @JoinColumn(name = "idusuario")
+    @JoinColumn(name = "idUsuario")
     private Usuario usuario;
 
-    public Integer getIdcliente() {
-        return idcliente;
+    public Integer getIdCliente() {
+        return idCliente;
     }
 
-    public void setIdcliente(Integer id) {
-        this.idcliente = id;
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getNome() {

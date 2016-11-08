@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,35 +20,35 @@ import javax.persistence.Table;
  * @author Usuario
  */
 @Entity
-@Table(name = "PRODUTO")
-public class Produto {
+@Table(name = "produto")
+public class Produto implements java.io.Serializable {
 
     @Id
-    @Column(name = "idproduto")
+    @Column(name = "idProduto")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idproduto;
+    private int idProduto;
     @Column(name = "descricao")
     private String descricao;
-    @Column(name = "categoria")
-    @OneToOne
-    @JoinColumn(name = "idcategoria")
+    //@Column(name = "categoria")
+    @ManyToOne
+    @JoinColumn(name = "idCategoria")
     private Categoria categoria;
     @Column(name = "urlFoto")
     private String urlFoto;
     @Column(name = "preco")
     private double preco;
-    @Column(name = "paginainicial")
-    private boolean paginainicial;
+    @Column(name = "paginaInicial")
+    private boolean paginaInicial;
 
     public Produto() {
     }
 
-    public int getIdproduto() {
-        return idproduto;
+    public int getIdProduto() {
+        return idProduto;
     }
 
-    public void setIdproduto(int idproduto) {
-        this.idproduto = idproduto;
+    public void setIdProduto(int idProduto) {
+        this.idProduto = idProduto;
     }
 
     public String getDescricao() {
@@ -82,12 +83,12 @@ public class Produto {
         this.preco = preco;
     }
 
-    public boolean isPaginainicial() {
-        return paginainicial;
+    public boolean isPaginaInicial() {
+        return paginaInicial;
     }
 
-    public void setPaginainicial(boolean paginainicial) {
-        this.paginainicial = paginainicial;
+    public void setPaginaInicial(boolean paginaInicial) {
+        this.paginaInicial = paginaInicial;
     }
 
 }

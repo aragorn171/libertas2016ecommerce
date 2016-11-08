@@ -17,27 +17,29 @@ import javax.persistence.Table;
  * @author Usuario
  */
 @Entity
-@Table(name = "CIDADE")
-public class Cidade {
+@Table(name = "cidade")
+public class Cidade implements java.io.Serializable {
 
     @Id
-    @Column(name = "idcidade")
+    @Column(name = "idCidade")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idcidade;
+    private int idCidade;
+    
     @Column(name = "cidade", length = 60, nullable = false)
     private String cidade;
+    
     @Column(name = "estado", length = 60, nullable = false)
     private String estado;
 
     public Cidade() {
     }
 
-    public int getIdcidade() {
-        return idcidade;
+    public int getIdCidade() {
+        return idCidade;
     }
 
-    public void setIdcidade(int idcidade) {
-        this.idcidade = idcidade;
+    public void setIdCidade(int idCidade) {
+        this.idCidade = idCidade;
     }
 
     public String getCidade() {

@@ -17,26 +17,25 @@ import javax.persistence.Table;
  * @author Usuario
  */
 @Entity
-@Table(name = "CATEGORIA")
-
-public class Categoria {
+@Table(name = "categoria")
+public class Categoria implements java.io.Serializable {
 
     @Id
-    @Column(name = "idcategoria")
+    @Column(name = "idCategoria")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idcategoria;
+    private int idCategoria;
     @Column(name = "nome", length = 60, nullable = false)
     private String nome;
 
     public Categoria() {
     }
 
-    public int getIdcategoria() {
-        return idcategoria;
+    public int getIdCategoria() {
+        return idCategoria;
     }
 
-    public void setIdcategoria(int idcategoria) {
-        this.idcategoria = idcategoria;
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
     public String getNome() {

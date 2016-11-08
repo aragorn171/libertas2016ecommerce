@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -20,16 +21,16 @@ import javax.persistence.Table;
  * @author Usuario
  */
 @Entity
-@Table(name = "PEDIDO")
-public class Pedido {
+@Table(name = "pedido")
+public class Pedido implements java.io.Serializable {
 
     @Id
-    @Column(name = "idpedido")
+    @Column(name = "idPedido")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idpedido;
-    @Column(name = "clente")
-    @OneToOne
-    @JoinColumn(name = "idcliente")
+    private int idPedido;
+    //@Column(name = "clente")
+    @ManyToOne
+    @JoinColumn(name = "idCliente")
     private Cliente cliente;
     @Column(name = "data")
     private Date data;
@@ -43,12 +44,12 @@ public class Pedido {
     public Pedido() {
     }
 
-    public int getIdpedido() {
-        return idpedido;
+    public int getIdPedido() {
+        return idPedido;
     }
 
-    public void setIdpedido(int idpedido) {
-        this.idpedido = idpedido;
+    public void setIdPedido(int idPedido) {
+        this.idPedido = idPedido;
     }
 
     public Cliente getCliente() {
