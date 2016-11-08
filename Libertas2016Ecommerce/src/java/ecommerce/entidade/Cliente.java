@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ecommerce.entidade;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -17,24 +19,36 @@ import javax.persistence.Table;
  * @author Plinio Naves
  */
 @Entity
-@Table(name="cliente")
+@Table(name = "cliente")
 public class Cliente implements java.io.Serializable {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String nome;
-    private String cpf;
-    private String endereco;
-    private String rg;
-    private String telefone;
 
-    public Integer getId() {
-        return id;
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idcliente;
+    @Column(name = "nome")
+    private String nome;
+    @Column(name = "cpf")
+    private String cpf;
+    @Column(name = "endereco")
+    @OneToOne
+    @JoinColumn(name = "idendereco")
+    private Endereco endereco;
+    @Column(name = "rg")
+    private String rg;
+    @Column(name = "telefone")
+    private String telefone;
+    @Column(name = "usuario")
+    @OneToOne
+    @JoinColumn(name = "idusuario")
+    private Usuario usuario;
+
+    public Integer getIdcliente() {
+        return idcliente;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdcliente(Integer id) {
+        this.idcliente = id;
     }
 
     public String getNome() {
@@ -53,11 +67,11 @@ public class Cliente implements java.io.Serializable {
         this.cpf = cpf;
     }
 
-    public String getEndereco() {
+    public Endereco getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(String endereco) {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 
@@ -76,6 +90,13 @@ public class Cliente implements java.io.Serializable {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-    
-    
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
 }
