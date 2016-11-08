@@ -11,7 +11,7 @@ import ecommerce.entidade.Cidade;
  *
  * @author Bruno
  */
-class CidadeDao extends Dao<Cidade>{
+public class CidadeDao extends Dao<Cidade>{
 
     public CidadeDao() {
         super(Cidade.class);
