@@ -37,7 +37,7 @@ public class ItemPedido  implements java.io.Serializable {
     
     @Column(name = "precoUnitario")
     private double precoUnitario;
-
+    
     public ItemPedido() {
     }
 

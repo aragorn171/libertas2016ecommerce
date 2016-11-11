@@ -48,6 +48,7 @@ public class Pedido implements java.io.Serializable {
     private boolean pago;
     
     @OneToMany
+    @JoinColumn(name = "idPedido")
     private List<ItemPedido> itens;
 
     public Pedido() {
