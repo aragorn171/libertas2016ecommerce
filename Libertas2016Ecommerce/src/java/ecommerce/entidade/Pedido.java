@@ -6,6 +6,7 @@
 package ecommerce.entidade;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -44,6 +46,9 @@ public class Pedido implements java.io.Serializable {
     
     @Column(name = "pago")
     private boolean pago;
+    
+    @OneToMany
+    private List<ItemPedido> itens;
 
     public Pedido() {
     }
@@ -99,6 +104,14 @@ public class Pedido implements java.io.Serializable {
     public double getValorTotal() {
         double valorTotal = 0;
         return valorTotal;
+    }
+
+    public List<ItemPedido> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<ItemPedido> itens) {
+        this.itens = itens;
     }
 
 }
