@@ -11,7 +11,7 @@ import ecommerce.entidade.ItemPedido;
  *
  * @author Bruno
  */
-public class ItemPedidoDao extends Dao<ItemPedido>{
+class ItemPedidoDao extends Dao<ItemPedido>{
 
     public ItemPedidoDao() {
         super(ItemPedido.class);

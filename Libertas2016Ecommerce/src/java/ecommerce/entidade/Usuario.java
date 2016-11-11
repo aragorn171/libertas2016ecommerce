@@ -17,29 +17,32 @@ import javax.persistence.Table;
  * @author Usuario
  */
 @Entity
-@Table(name = "USUARIO")
-public class Usuario {
+@Table(name = "usuario")
+public class Usuario implements java.io.Serializable {
 
     @Id
-    @Column(name = "idusuario")
+    @Column(name = "idUsuario")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idusuario;
+    private int idUsuario;
+    
     @Column(name = "email")
     private String email;
+    
     @Column(name = "senha")
     private String senha;
+    
     @Column(name = "admin")
     private boolean admin;
 
     public Usuario() {
     }
 
-    public int getIdusuario() {
-        return idusuario;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setIdusuario(int idusuario) {
-        this.idusuario = idusuario;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getEmail() {

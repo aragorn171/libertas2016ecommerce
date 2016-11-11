@@ -14,7 +14,15 @@
     <property name="hibernate.current_session_context_class">thread</property>
     <!--<property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>-->
     
+    <mapping class="ecommerce.entidade.Cidade"></mapping>
+    <mapping class="ecommerce.entidade.Endereco"></mapping>
+    <mapping class="ecommerce.entidade.Usuario"></mapping>
     <mapping class="ecommerce.entidade.Cliente"></mapping>
+    <mapping class="ecommerce.entidade.Categoria"></mapping>
+    <mapping class="ecommerce.entidade.Produto"></mapping>
+    <mapping class="ecommerce.entidade.Carrinho"></mapping>
+    <mapping class="ecommerce.entidade.Pedido"></mapping>
+    <mapping class="ecommerce.entidade.ItemPedido"></mapping>
     
   </session-factory>
 </hibernate-configuration>

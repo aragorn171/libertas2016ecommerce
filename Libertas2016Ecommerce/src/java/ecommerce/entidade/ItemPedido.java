@@ -11,7 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -19,31 +19,34 @@ import javax.persistence.Table;
  * @author Usuario
  */
 @Entity
-@Table(name = "INTEMPEDIDO")
-public class ItemPedido {
+@Table(name = "itemPedido")
+public class ItemPedido  implements java.io.Serializable {
 
     @Id
-    @Column(name = "idendereco")
+    @Column(name = "idItemPedido")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int iditempedido;
-    @Column(name = "produto")
-    @OneToOne
-    @JoinColumn(name = "idproduto")
+    private int idItemPedido;
+    
+    //@Column(name = "produto")
+    @ManyToOne
+    @JoinColumn(name = "idProduto")
     private Produto produto;
+    
     @Column(name = "quantidade")
     private int quantidade;
+    
     @Column(name = "precoUnitario")
     private double precoUnitario;
 
     public ItemPedido() {
     }
 
-    public int getIditempedido() {
-        return iditempedido;
+    public int getIdItemPedido() {
+        return idItemPedido;
     }
 
-    public void setIditempedido(int iditempedido) {
-        this.iditempedido = iditempedido;
+    public void setIdItemPedido(int idItemPedido) {
+        this.idItemPedido = idItemPedido;
     }
 
     public Produto getProduto() {
