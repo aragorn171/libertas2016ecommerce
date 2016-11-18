@@ -8,6 +8,9 @@ package ecommerce.tests;
 //import ecommerce.HibernateUtil;
 import ecommerce.dao.*;
 import ecommerce.entidade.*;
+import java.util.Calendar;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -21,6 +24,8 @@ public class TesteBanco {
         testaCliente();
         testaCategoria();
         testaProduto();
+        testaCarrinho();
+        testaPedido();
         
     }
     
@@ -114,6 +119,127 @@ public class TesteBanco {
         }
         
         dao.excluir(p);
+    }
+    
+    private static void testaCarrinho() {
+        
+        Categoria c = new Categoria();
+        c.setNome("Destilados");
+        CategoriaDao cDao = new CategoriaDao();
+        cDao.inserir(c);
+        
+        Produto p = new Produto();
+        p.setCategoria(c);
+        p.setDescricao("Vodka");
+        p.setPreco(25.87f);
+        
+        ProdutoDao dao = new ProdutoDao();
+        dao.inserir(p);
+        
+        Produto p2 = new Produto();
+        p2.setCategoria(c);
+        p2.setDescricao("Vodka Especial");
+        p2.setPreco(35.99f);
+        dao.inserir(p2);
+        
+        Cliente cli = new Cliente();
+        cli.setNome("Teste Cliente");
+        cli.setEndereco(new Endereco());
+        cli.getEndereco().setLogadouro("Rua Teste");
+        cli.getEndereco().setCidade((new CidadeDao()).listar().get(0));
+        cli.setUsuario(new Usuario());
+        cli.getUsuario().setEmail("teste user");
+        ClienteDao cliDao = new ClienteDao();
+        cliDao.inserir(cli);
+        
+        Carrinho car = new Carrinho();
+        car.setCliente(cli);
+        car.setProduto(p);
+        car.setQuantidade(5);
+        CarrinhoDao carDao = new CarrinhoDao();
+        carDao.inserir(car);
+        
+        car.setProduto(p2);
+        car.setQuantidade(3);
+        carDao.alterar(car);
+        
+        car = carDao.consultar(car.getIdCarrinho());
+        System.out.println(car.getProduto().getDescricao());
+        
+        for (Carrinho carrinho : carDao.listar()) {
+            System.out.println(carrinho.getProduto().getDescricao());
+            carDao.excluir(carrinho);
+        }
+        
+    }
+    
+    private static void testaPedido() {
+        
+        Categoria c = new Categoria();
+        c.setNome("Destilados");
+        CategoriaDao cDao = new CategoriaDao();
+        cDao.inserir(c);
+        
+        Produto p = new Produto();
+        p.setCategoria(c);
+        p.setDescricao("Vodka");
+        p.setPreco(25.87f);
+        
+        ProdutoDao dao = new ProdutoDao();
+        dao.inserir(p);
+        
+        Produto p2 = new Produto();
+        p2.setCategoria(c);
+        p2.setDescricao("Vodka Especial");
+        p2.setPreco(35.99f);
+        dao.inserir(p2);
+        
+        Cliente cli = new Cliente();
+        cli.setNome("Teste Cliente");
+        cli.setEndereco(new Endereco());
+        cli.getEndereco().setLogadouro("Rua Teste");
+        cli.getEndereco().setCidade((new CidadeDao()).listar().get(0));
+        cli.setUsuario(new Usuario());
+        cli.getUsuario().setEmail("teste user");
+        ClienteDao cliDao = new ClienteDao();
+        cliDao.inserir(cli);
+        
+        Pedido ped = new Pedido();
+        ped.setCliente(cli);
+        ped.setData(Calendar.getInstance().getTime());
+        ped.setValorFrete(50);
+        
+        List<ItemPedido> itens = new LinkedList<ItemPedido>();
+        
+        ItemPedido item1 = new ItemPedido();
+        item1.setProduto(p);
+        item1.setPrecoUnitario(p.getPreco());
+        item1.setQuantidade(4);
+        
+        ItemPedido item2 = new ItemPedido();
+        item2.setProduto(p2);
+        item2.setPrecoUnitario(p2.getPreco());
+        item2.setQuantidade(4);
+        
+        itens.add(item1);
+        itens.add(item2);
+        ped.setItens(itens);
+        
+        PedidoDao pedDao = new PedidoDao();
+        pedDao.inserir(ped);
+        
+        ped = pedDao.consultar(ped.getIdPedido());
+        System.out.println(ped.getIdPedido());
+        
+        ped.setValorFrete(67.50f);
+        pedDao.alterar(ped);
+        System.out.println(ped.getIdPedido());
+        
+        for (Pedido pedido : pedDao.listar()) {
+            System.out.println(pedido.getIdPedido());
+            pedDao.excluir(pedido);
+        }
+        
     }
 
 }

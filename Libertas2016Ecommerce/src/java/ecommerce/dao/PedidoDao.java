@@ -19,7 +19,7 @@ public class PedidoDao extends Dao<Pedido>{
         super(Pedido.class);
     }
     
-    /*@Override
+   /*@Override
     public void alterar(Pedido objeto) {
         salvarOuAtualizar(objeto);
     }
@@ -46,7 +46,7 @@ public class PedidoDao extends Dao<Pedido>{
             }
         }
     }//*/
-
+    
     @Override
     public void excluir(Pedido objeto) {
         
