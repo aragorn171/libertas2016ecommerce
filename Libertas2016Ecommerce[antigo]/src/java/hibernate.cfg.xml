@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ecommerce</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password"></property>
+    
+    <property name="connection_pool_size">1</property>
+    <property name="hbm2ddl.auto">update</property>
+    <property name="show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
+    
+    <mapping class="ecommerce.entidade.Cidade"></mapping>
+    <mapping class="ecommerce.entidade.Endereco"></mapping>
+    <mapping class="ecommerce.entidade.Usuario"></mapping>
+    <mapping class="ecommerce.entidade.Cliente"></mapping>
+    <mapping class="ecommerce.entidade.Categoria"></mapping>
+    <mapping class="ecommerce.entidade.Produto"></mapping>
+    <mapping class="ecommerce.entidade.Carrinho"></mapping>
+    <mapping class="ecommerce.entidade.Pedido"></mapping>
+    <mapping class="ecommerce.entidade.ItemPedido"></mapping>
+    
+  </session-factory>
+</hibernate-configuration>
