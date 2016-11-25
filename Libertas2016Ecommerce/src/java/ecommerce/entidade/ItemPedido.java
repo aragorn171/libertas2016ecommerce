@@ -27,6 +27,10 @@ public class ItemPedido  implements java.io.Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idItemPedido;
     
+    @ManyToOne
+    @JoinColumn(name="idPedido", nullable = true)
+    private Pedido pedido;
+    
     //@Column(name = "produto")
     @ManyToOne
     @JoinColumn(name = "idProduto")
@@ -37,7 +41,7 @@ public class ItemPedido  implements java.io.Serializable {
     
     @Column(name = "precoUnitario")
     private double precoUnitario;
-
+    
     public ItemPedido() {
     }
 
@@ -47,6 +51,14 @@ public class ItemPedido  implements java.io.Serializable {
 
     public void setIdItemPedido(int idItemPedido) {
         this.idItemPedido = idItemPedido;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 
     public Produto getProduto() {

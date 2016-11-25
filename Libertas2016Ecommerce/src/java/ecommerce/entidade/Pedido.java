@@ -7,8 +7,10 @@ package ecommerce.entidade;
 
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -47,7 +49,8 @@ public class Pedido implements java.io.Serializable {
     @Column(name = "pago")
     private boolean pago;
     
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "pedido", orphanRemoval = true)
+    //@JoinColumn(name = "idPedido")
     private List<ItemPedido> itens;
 
     public Pedido() {
