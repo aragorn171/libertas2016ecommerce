@@ -185,14 +185,14 @@ public class TesteBanco {
         p.setDescricao("Vodka");
         p.setPreco(25.87f);
         
-        ProdutoDao dao = new ProdutoDao();
-        dao.inserir(p);
+        ProdutoDao prodDao = new ProdutoDao();
+        prodDao.inserir(p);
         
         Produto p2 = new Produto();
         p2.setCategoria(c);
         p2.setDescricao("Vodka Especial");
         p2.setPreco(35.99f);
-        dao.inserir(p2);
+        prodDao.inserir(p2);
         
         Cliente cli = new Cliente();
         cli.setNome("Teste Cliente");
@@ -212,14 +212,16 @@ public class TesteBanco {
         List<ItemPedido> itens = new LinkedList<ItemPedido>();
         
         ItemPedido item1 = new ItemPedido();
+        item1.setPedido(ped);
         item1.setProduto(p);
         item1.setPrecoUnitario(p.getPreco());
-        item1.setQuantidade(4);
+        item1.setQuantidade(11);
         
         ItemPedido item2 = new ItemPedido();
+        item2.setPedido(ped);
         item2.setProduto(p2);
         item2.setPrecoUnitario(p2.getPreco());
-        item2.setQuantidade(4);
+        item2.setQuantidade(22);
         
         itens.add(item1);
         itens.add(item2);
@@ -235,7 +237,27 @@ public class TesteBanco {
         pedDao.alterar(ped);
         System.out.println(ped.getIdPedido());
         
-        for (Pedido pedido : pedDao.listar()) {
+        ItemPedido item3 = new ItemPedido();
+        item3.setPedido(ped);
+        item3.setProduto(p2);
+        item3.setPrecoUnitario(p2.getPreco());
+        item3.setQuantidade(33);
+        ped.getItens().add(item3);
+        
+        ped.getItens().remove(ped.getItens().get(1));
+        pedDao.alterar(ped);
+        
+        Produto p3 = new Produto();
+        p3.setCategoria(c);
+        p3.setDescricao("Ipioca");
+        p3.setPreco(38.5f);
+        prodDao.inserir(p3);
+        
+        ped.getItens().get(0).setProduto(p3);
+        pedDao.alterar(ped);
+        
+        List<Pedido> pedidos = pedDao.listar();
+        for (Pedido pedido : pedidos) {
             System.out.println(pedido.getIdPedido());
             pedDao.excluir(pedido);
         }

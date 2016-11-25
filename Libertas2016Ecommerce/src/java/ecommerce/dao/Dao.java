@@ -7,6 +7,7 @@ package ecommerce.dao;
 
 import ecommerce.HibernateUtil;
 import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
@@ -54,7 +55,9 @@ public abstract class Dao<T> {
     public List<T> listar() {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        List<T> lista = session.createCriteria(classe).list();
+        Criteria criteria = session.createCriteria(classe);
+        criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        List<T> lista = criteria.list();
         session.getTransaction().commit();
         return lista;
     }
