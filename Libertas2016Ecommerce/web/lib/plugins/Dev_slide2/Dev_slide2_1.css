@@ -10,10 +10,6 @@
     font-size: 0;
 }
 
-.arrows-slide div
-{
-    display: block!important;
-}
 .arrows-slide div img
 {
     width: 20px;
@@ -26,10 +22,6 @@
 
 .grid-slide{
     vertical-align: top!important;
-    margin-top: 0!important;
-    margin-bottom: 0!important;
-    position: relative;
-    z-index: 999;
 }
 
 /* FIM GRID SLIDE */
