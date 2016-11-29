@@ -11,7 +11,7 @@ import ecommerce.entidade.Endereco;
  *
  * @author Bruno
  */
-class EnderecoDao extends Dao<Endereco> {
+public class EnderecoDao extends Dao<Endereco> {
 
     public EnderecoDao() {
         super(Endereco.class);
